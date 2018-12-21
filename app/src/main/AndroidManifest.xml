@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.kevalpatel2106.blockchain.info">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:name=".BIApplication"
             android:allowBackup="false"

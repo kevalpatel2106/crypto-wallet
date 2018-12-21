@@ -8,8 +8,10 @@
 
 package com.kevalpatel2106.blockchain.info.repository.network
 
-import io.reactivex.Completable
+import com.kevalpatel2106.blockchain.info.repository.dto.MultiAddrDto
+import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * List of all the server endpoints.
@@ -18,6 +20,6 @@ import retrofit2.http.GET
  */
 internal interface Endpoint {
 
-    @GET("app_data.json")
-    fun getData(): Completable
+    @GET("multiaddr?n=100")
+    fun getData(@Query("active") active: String, @Query("offset") offset: Int = 0): Single<MultiAddrDto>
 }

@@ -8,9 +8,12 @@
 
 package com.kevalpatel2106.blockchain.info.di
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.kevalpatel2106.blockchain.info.dashboard.DashboardViewModel
 import dagger.Binds
 import dagger.Module
+import dagger.multibindings.IntoMap
 
 /**
  * Dagger [Module] to inject view models using dagger.
@@ -22,5 +25,11 @@ internal abstract class ViewModelFactoryModule {
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardViewModel::class)
+    internal abstract fun bindDashboardViewModel(viewModel: DashboardViewModel): ViewModel
+
 }
 

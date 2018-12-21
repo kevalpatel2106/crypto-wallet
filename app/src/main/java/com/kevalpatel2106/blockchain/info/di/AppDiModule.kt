@@ -9,7 +9,9 @@
 package com.kevalpatel2106.blockchain.info.di
 
 import android.app.Application
+import android.preference.PreferenceManager
 import com.kevalpatel2106.blockchain.info.BuildConfig
+import com.kevalpatel2106.blockchain.info.repository.SharedPrefsProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -50,5 +52,11 @@ internal class AppDiModule(private val application: Application) {
     @Named(ENABLE_LOG)
     internal fun provideIsEnableLogging(): Boolean {
         return BuildConfig.BUILD_TYPE.contains("debug", true)
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideSharedPreference(application: Application): SharedPrefsProvider {
+        return SharedPrefsProvider(PreferenceManager.getDefaultSharedPreferences(application))
     }
 }

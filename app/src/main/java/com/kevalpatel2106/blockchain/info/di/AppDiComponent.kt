@@ -9,7 +9,8 @@ package com.kevalpatel2106.blockchain.info.di
 
 import android.app.Application
 import com.kevalpatel2106.blockchain.info.BIApplication
-import com.kevalpatel2106.blockchain.info.SplashActivity
+import com.kevalpatel2106.blockchain.info.dashboard.DashboardActivity
+import com.kevalpatel2106.blockchain.info.repository.SharedPrefsProvider
 import dagger.Component
 import javax.inject.Named
 import javax.inject.Singleton
@@ -24,11 +25,13 @@ import javax.inject.Singleton
 @Component(modules = [ViewModelFactoryModule::class, AppDiModule::class])
 internal interface AppDiComponent {
 
-    fun inject(splashActivity: SplashActivity)
+    fun inject(dashboardActivity: DashboardActivity)
 
     fun inject(application: BIApplication)
 
     fun getApplication(): Application
+
+    fun getSharedPreferences(): SharedPrefsProvider
 
     @Named(AppDiModule.BASE_URL)
     fun getBaseUrl(): String

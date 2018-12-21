@@ -32,6 +32,7 @@ class LiveDataExtKtTest {
     val rule = InstantTaskExecutorRule()
 
     private lateinit var testLiveData: MutableLiveData<String>
+
     @Mock
     private lateinit var eventObserver: Observer<String>
 
@@ -45,12 +46,22 @@ class LiveDataExtKtTest {
     }
 
     @Test
-    fun checkRecall() {
+    fun checkNullSafeObserver_whenNullValueSet() {
+        testLiveData.value = testString
+
         testLiveData.observeForever(eventObserver)
+        testLiveData.value = null
 
-        testLiveData.recall()
+        Mockito.verify(eventObserver, Mockito.never())
+    }
 
-        Mockito.verify(eventObserver, Mockito.times(2))
-            .onChanged(testString)
+    @Test
+    fun checkNullSafeObserver_whenNonNullValueSet() {
+        testLiveData.value = ""
+
+        testLiveData.observeForever(eventObserver)
+        testLiveData.value = testString
+
+        Mockito.verify(eventObserver, Mockito.times(1)).onChanged(testString)
     }
 }

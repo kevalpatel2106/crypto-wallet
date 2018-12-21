@@ -88,5 +88,4 @@ class Network @Inject constructor(
             .addConverterFactory(gsonConverterFactory)
             .build()
     }
-
 }

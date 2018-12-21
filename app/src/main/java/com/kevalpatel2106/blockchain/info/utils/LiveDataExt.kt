@@ -8,17 +8,15 @@
 
 package com.kevalpatel2106.blockchain.info.utils
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 
 /**
  * Extention functions for live data
  *
  * @author <a href="https://github.com/kevalpatel2106">kevalpatel2106</a>
  */
-
-/**
- * Regenerate the onChanged event without changing the data.
- */
-fun <T> MutableLiveData<T>.recall() {
-    value = value
+fun <T> LiveData<T>.nullSafeObserve(owner: LifecycleOwner, observer: (t: T) -> Unit) {
+    observe(owner, Observer { it?.let(observer) })
 }
