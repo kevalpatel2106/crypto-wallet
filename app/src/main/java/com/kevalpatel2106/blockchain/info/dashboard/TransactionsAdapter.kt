@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.kevalpatel2106.blockchain.info.bin.Transaction
 
 class TransactionsAdapter(private val onLoadMore: () -> Unit) :
-    ListAdapter<Transaction, RootViewHolder>(DIFF_CALLBACK) {
+        ListAdapter<Transaction, RootViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RootViewHolder {
         return when (viewType) {

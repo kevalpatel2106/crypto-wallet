@@ -11,3 +11,5 @@
 /build
 /captures
 .externalNativeBuild
+/testutils/build/
+/.idea/vcs.xml

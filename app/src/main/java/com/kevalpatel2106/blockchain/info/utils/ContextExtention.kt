@@ -26,16 +26,16 @@ import androidx.core.content.ContextCompat
 fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, color)
 
 fun <T : AppCompatActivity> Context.prepareLaunchIntent(
-    aClass: Class<T>,
-    isNewTask: Boolean = false
+        aClass: Class<T>,
+        isNewTask: Boolean = false
 ): Intent {
 
     return Intent(this, aClass).apply {
         if (isNewTask) {
             addFlags(
-                Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        or Intent.FLAG_ACTIVITY_NEW_TASK
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                            or Intent.FLAG_ACTIVITY_NEW_TASK
             )
         }
     }

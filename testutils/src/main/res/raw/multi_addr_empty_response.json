@@ -1,0 +1,50 @@
+{
+  "recommend_include_fee": true,
+  "info": {
+    "nconnected": 0,
+    "conversion": 100000000,
+    "symbol_local": {
+      "code": "USD",
+      "symbol": "$",
+      "name": "U.S. dollar",
+      "conversion": 24841.81971298,
+      "symbolAppearsAfter": false,
+      "local": true
+    },
+    "symbol_btc": {
+      "code": "BTC",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "conversion": 100000000,
+      "symbolAppearsAfter": true,
+      "local": false
+    },
+    "latest_block": {
+      "block_index": 1737300,
+      "hash": "0000000000000000002440a943b3de4333a3648bdce64e132f384f329b26f99f",
+      "height": 554747,
+      "time": 1545387178
+    }
+  },
+  "wallet": {
+    "n_tx": 380,
+    "n_tx_filtered": 380,
+    "total_received": 29715281,
+    "total_sent": 29094045,
+    "final_balance": 621236
+  },
+  "addresses": [
+    {
+      "address": "xpub6CfLQa8fLgtouvLxrb8EtvjbXfoC1yqzH6YbTJw4dP7srt523AhcMV8Uh4K3TWSHz9oDWmn9MuJogzdGU3ncxkBsAC9wFBLmFrWT9Ek81kQ",
+      "n_tx": 380,
+      "total_received": 29715281,
+      "total_sent": 29094045,
+      "final_balance": 621236,
+      "gap_limit": 20,
+      "change_index": 209,
+      "account_index": 149
+    }
+  ],
+  "txs": [
+  ]
+}

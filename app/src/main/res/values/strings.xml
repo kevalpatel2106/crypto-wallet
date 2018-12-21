@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="activity_dashboard_title">Blockchain Wallet</string>
+    <string name="your_wallet_balance_is">Your wallet balance is</string>
+    <string name="total_amount_received">Total amount received</string>
+    <string name="total_amount_sent">Total amount sent</string>
+    <string name="total_number_of_transactions">Total transactions</string>
 </resources>

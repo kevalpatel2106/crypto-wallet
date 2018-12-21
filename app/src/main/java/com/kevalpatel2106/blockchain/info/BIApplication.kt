@@ -10,8 +10,8 @@ internal class BIApplication : BaseApplication() {
 
     override fun prepareAppComponent(): AppDiComponent {
         return DaggerAppDiComponent.builder()
-            .appDiModule(AppDiModule(this@BIApplication))
-            .build()
+                .appDiModule(AppDiModule(this@BIApplication))
+                .build()
     }
 
     override fun injectRootComponent() {

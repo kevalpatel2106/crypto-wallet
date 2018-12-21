@@ -30,6 +30,8 @@ class SharedPrefsProvider(private val sharedPreference: SharedPreferences) {
         sharedPreference.edit { remove(key) }
     }
 
+    fun removeAll() = sharedPreference.edit().clear().apply()
+
     fun savePreferences(save: (edit: SharedPreferences.Editor) -> Unit) {
         sharedPreference.edit { save.invoke(this) }
     }

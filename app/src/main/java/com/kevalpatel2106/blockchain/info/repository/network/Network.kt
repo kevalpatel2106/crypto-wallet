@@ -28,8 +28,8 @@ import javax.inject.Named
  * @author <a href="https://github.com/kevalpatel2106">kevalpatel2106</a>
  */
 class Network @Inject constructor(
-    @Named(AppDiModule.BASE_URL) private val baseUrl: String,
-    @Named(AppDiModule.ENABLE_LOG) enableLog: Boolean
+        @Named(AppDiModule.BASE_URL) private val baseUrl: String,
+        @Named(AppDiModule.ENABLE_LOG) enableLog: Boolean
 ) {
 
     /**
@@ -38,8 +38,8 @@ class Network @Inject constructor(
      * @see gsonConverterFactory
      */
     private val sGson: Gson = GsonBuilder()
-        .setLenient()
-        .create()
+            .setLenient()
+            .create()
 
     /**
      * OkHttp instance. New instances will be shallow copy of this instance.
@@ -63,14 +63,14 @@ class Network @Inject constructor(
 
     init {
         val httpClientBuilder = OkHttpClient.Builder()
-            .readTimeout(NetworkConfig.READ_TIMEOUT, TimeUnit.MINUTES)
-            .writeTimeout(NetworkConfig.WRITE_TIMEOUT, TimeUnit.MINUTES)
-            .connectTimeout(NetworkConfig.CONNECTION_TIMEOUT, TimeUnit.MINUTES)
+                .readTimeout(NetworkConfig.READ_TIMEOUT, TimeUnit.MINUTES)
+                .writeTimeout(NetworkConfig.WRITE_TIMEOUT, TimeUnit.MINUTES)
+                .connectTimeout(NetworkConfig.CONNECTION_TIMEOUT, TimeUnit.MINUTES)
 
         //Add debug interceptors
         if (enableLog) {
             httpClientBuilder.addInterceptor(HttpLoggingInterceptor()
-                .apply { level = HttpLoggingInterceptor.Level.BODY }
+                    .apply { level = HttpLoggingInterceptor.Level.BODY }
             )
         }
 
@@ -82,10 +82,10 @@ class Network @Inject constructor(
      */
     fun getRetrofitClient(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHttpClient)
-            .addCallAdapterFactory(rxCallAdapterFactory)
-            .addConverterFactory(gsonConverterFactory)
-            .build()
+                .baseUrl(baseUrl)
+                .client(okHttpClient)
+                .addCallAdapterFactory(rxCallAdapterFactory)
+                .addConverterFactory(gsonConverterFactory)
+                .build()
     }
 }

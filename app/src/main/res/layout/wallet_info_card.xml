@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/dashboard_toolbar"
+        android:layout_width="@dimen/material_card_width"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_height="@dimen/dashboard_balance_card_height"
+        android:padding="@dimen/spacing_micro"
+        android:layout_marginBottom="@dimen/spacing_huge"
+        app:cardBackgroundColor="@android:color/white"
+        app:contentPaddingTop="@dimen/spacing_micro"
+        app:contentPaddingBottom="@dimen/spacing_micro"
+        app:contentPaddingRight="@dimen/spacing_small"
+        app:contentPaddingLeft="@dimen/spacing_small"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="@dimen/spacing_nano"
+        app:cardElevation="@dimen/spacing_micro">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/your_wallet_balance_is"
+                android:layout_width="0dp"
+                style="@style/MediumText.Primary"
+                android:singleLine="true"
+                android:layout_height="wrap_content"
+                android:id="@+id/wallet_balance_title_tv"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="@dimen/spacing_small"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LargeText.Accent"
+                tools:text="0.345874 BTC"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/wallet_balance_text_size"
+                android:id="@+id/wallet_balance_tv"
+                android:singleLine="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="@dimen/spacing_nano"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/wallet_balance_title_tv"/>
+        <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/total_number_of_transactions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/number_of_transactions_title_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@+id/wallet_balance_tv"
+                app:layout_constraintEnd_toStartOf="@+id/guideline" android:layout_marginEnd="@dimen/spacing_micro"
+                android:layout_marginRight="@dimen/spacing_micro" app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@+id/total_sent_title_tv"
+                app:layout_constraintVertical_chainStyle="packed"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/total_amount_sent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/total_sent_title_tv" android:layout_marginTop="@dimen/spacing_micro"
+                app:layout_constraintTop_toBottomOf="@+id/number_of_transactions_title_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                android:layout_marginEnd="@dimen/spacing_micro" android:layout_marginRight="@dimen/spacing_micro"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@+id/total_recived_title_tv"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/total_amount_received"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_recived_title_tv"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="@dimen/spacing_micro"
+                app:layout_constraintTop_toBottomOf="@+id/total_sent_title_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                android:layout_marginEnd="@dimen/spacing_micro"
+                android:layout_marginRight="@dimen/spacing_micro"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                tools:text="1304"
+                android:layout_width="0dp"
+                android:singleLine="true"
+                android:layout_height="wrap_content"
+                android:id="@+id/number_transaction_tv"
+                app:layout_constraintBaseline_toBaselineOf="@+id/number_of_transactions_title_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_marginStart="@dimen/spacing_micro"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                tools:text="0.348567345 BTC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:id="@+id/total_sent_amount_tv"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_marginStart="@dimen/spacing_micro"
+                app:layout_constraintBaseline_toBaselineOf="@+id/total_sent_title_tv"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                tools:text="0.348567345 BTC"
+                android:textColor="@android:color/holo_green_dark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:id="@+id/total_received_amount_tv"
+                app:layout_constraintBaseline_toBaselineOf="@+id/total_recived_title_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginLeft="@dimen/spacing_micro"
+                android:layout_marginStart="@dimen/spacing_micro"
+                app:layout_constraintStart_toStartOf="@+id/guideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

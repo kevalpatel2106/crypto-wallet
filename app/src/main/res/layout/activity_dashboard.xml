@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:background="@android:color/white"
         android:id="@+id/dashboard_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".dashboard.DashboardActivity">
 
-    <androidx.appcompat.widget.Toolbar
-            android:id="@+id/dashboard_toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/dashboard_appbar_height"
             android:layout_width="match_parent"
-            android:background="?colorPrimary"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_height="?actionBarSize"/>
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/dashboard_collapsing_toolbar"
+                android:layout_width="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:layout_height="match_parent">
+
+            <include layout="@layout/wallet_info_card"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ViewFlipper
             android:id="@+id/dashboard_flipper"
             android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/dashboard_toolbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_height="0dp">
+            app:behavior_overlapTop="@dimen/spacing_xxlarge"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_height="match_parent">
 
-        <!--0. Loader-->
+        <!--0. List-->
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/material_card_width"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="@dimen/spacing_nano"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/dashboard_list_card"
+                app:cardElevation="@dimen/spacing_pico"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/transaction_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/row_transaction"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--1. Loader-->
         <ProgressBar
                 android:layout_width="60dp"
                 android:layout_gravity="center"
                 android:layout_height="60dp"/>
-
-
-        <!--1. List-->
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/transaction_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/row_transaction"/>
     </ViewFlipper>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
