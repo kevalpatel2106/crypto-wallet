@@ -41,8 +41,8 @@ class MockServerManager : Closeable {
                 if (it.isNullOrEmpty()) {
                     System.getenv("PROJECT_ROOT")
                 } else {
-                    it.substring(0 until it.lastIndexOf("blockchain-info"))
-                        .plus("blockchain-info")
+                    it.substring(0 until it.lastIndexOf("crypto-wallet"))
+                            .plus("crypto-wallet")
                 }
             }
 

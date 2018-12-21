@@ -1,0 +1,40 @@
+language: android
+jdk: oraclejdk8
+sudo: true
+
+env:
+  global:
+  - ADB_INSTALL_TIMEOUT=10    #Time out to 10 mins
+
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:      #Cache all dirs under .gradle folder
+  - $HOME/.gradle/daemon      #Cache daemon logs
+  - $HOME/.gradle/native      #Cache library downloaded from the gradle dependency
+  - $HOME/.gradle/wrapper     #Cache the gradle
+
+android:
+  update_sdk: true
+  components:
+  - platform-tools
+  - tools # to install Android SDK tools 25.1.x (x = 6 right now)
+  - build-tools-28.0.3
+  - android-28
+
+  # Additional components
+  - extra-google-m2repository
+  - extra-android-m2repository
+
+before_install:
+- yes | sdkmanager "build-tools;28.0.3"
+
+before_script:
+- chmod +x gradlew      #Grant permissions
+
+script:
+- ./gradlew jacocoTestReportDebug -PdisablePreDex --stacktrace
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
